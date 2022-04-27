@@ -1,4 +1,4 @@
-Text:
+// Text
 
 body: Center(
   child: Row(
@@ -19,7 +19,7 @@ body: Center(
   ),
 ),
 
-RichText
+// RichText
 
 body: Center(
     child: Column(
@@ -54,7 +54,7 @@ body: Center(
   ],
 )),
 
-ElevatedButton
+// ElevatedButton
 
 ElevatedButton(
   onPressed: () => print("Button Pressed!!!"),
@@ -104,7 +104,7 @@ ElevatedButton.icon(
   ),
 )
 
-OutlinedButton
+// OutlinedButton
 
 OutlinedButton(
   onPressed: () => print("Button Pressed!!!"),
@@ -130,7 +130,7 @@ OutlinedButton(
   ),
 ),
 
-TextButton
+// TextButton
 
 TextButton(
   onPressed: () => print("Button Pressed!!!"),
@@ -150,7 +150,7 @@ TextButton(
   ),
 )
 
-IconButton
+// IconButton
 
 IconButton(
   onPressed: () => print("button Pressed!!!"),
@@ -161,7 +161,7 @@ IconButton(
   tooltip: "This is the icon button", // Shown on long press
 )
 
-Ink
+// Ink
 
 Ink(
   decoration: ShapeDecoration(
@@ -174,7 +174,7 @@ Ink(
   ),
 )
 
- FloatingActionButton
+// FloatingActionButton
 
 floatingActionButton: FloatingActionButton(
   onPressed: () => print("Button Pressed!!!"),
@@ -191,7 +191,7 @@ floatingActionButton: FloatingActionButton.extended(
   tooltip: "Tooltip",
 ),
 
-Container
+// Container
 
 Container(
   child: Text(
@@ -220,7 +220,7 @@ Container(
   ),
 ),
 
-Image
+// Image
 
 Image.asset(
   "asset/smit_image.jpeg",
@@ -243,7 +243,7 @@ Image.asset(
   },
 ),
 
-InSide the Container
+// InSide the Container
 decoration: BoxDecoration(
   image: DecorationImage(
     image: AssetImage("asset/smit_image.jpeg"),
@@ -278,7 +278,7 @@ Image.network(
   },
 ),
 
-List
+// List
 
 ListView(
   // scrollDirection: Axis.horizontal,
@@ -375,7 +375,7 @@ ListView.builder(
   },
 ),
 
-Text Field
+// Text Field
 
 TextField(
     autofocus: true,
@@ -425,7 +425,7 @@ TextField(
   textAlignVertical: TextAlignVertical.center,
 ),
 
-SizedBox
+// SizedBox
 
 SizedBox(
   height: 300,
@@ -440,7 +440,7 @@ SizedBox(
   ),
 )
 
-Expanded
+// Expanded
 
 Expanded(
   child: ListView.builder(
@@ -454,7 +454,7 @@ Expanded(
   ),
 )
 
-GridView
+// GridView
 
 GridView(
   scrollDirection: Axis.vertical,
@@ -484,7 +484,7 @@ GridView(
       .toList(),
 ),
 
-MediaQuery && Navigator
+// MediaQuery && Navigator
 
 Scaffold(
   appBar: AppBar(
@@ -513,7 +513,7 @@ Scaffold(
   ),
 );
 
-http request
+// http request
 
 class _MyHomeAppState extends State<MyHomeApp> {
   var _textController;
@@ -575,7 +575,7 @@ class _MyHomeAppState extends State<MyHomeApp> {
   }
 }
 
-showModalBottomSheet
+// showModalBottomSheet
 
 body: Center( 
   child: ElevatedButton(
@@ -594,7 +594,7 @@ body: Center(
   ),
 ),
 
-showBottomSheet
+// showBottomSheet
 
 class _FABState extends State<FAB> {
   bool isOpen = false;
