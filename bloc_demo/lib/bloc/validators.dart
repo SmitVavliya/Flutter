@@ -1,7 +1,5 @@
 import 'dart:async';
 
-import 'register_bloc.dart';
-
 class Validators {
   var emailValidator = StreamTransformer<String, String>.fromHandlers(
     handleData: (String email, sink) {
@@ -71,18 +69,4 @@ class Validators {
       return sink.add(phone);
     },
   );
-
-  // var confirmPasswordValidator = StreamTransformer<String, String>.fromHandlers(
-  //   handleData: (String confirmPassword, sink) {
-  //     if (confirmPassword.isEmpty) {
-  //       return sink.addError("This Field can't be empty.");
-  //     }
-  //     if (confirmPassword != RegisterBloc().password) {
-  //       print(confirmPassword);
-  //       print(RegisterBloc().password);
-  //       return sink.addError("Confirm password must be same as password.");
-  //     }
-  //     return sink.add(confirmPassword);
-  //   },
-  // );
 }

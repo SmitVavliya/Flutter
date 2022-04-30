@@ -1,6 +1,8 @@
 import 'dart:async';
-import 'package:bloc_demo/bloc/validators.dart';
+
 import "package:rxdart/rxdart.dart";
+
+import 'validators.dart';
 
 class RegisterBloc with Validators {
   final BehaviorSubject<String> _registerName = BehaviorSubject<String>();
@@ -21,7 +23,14 @@ class RegisterBloc with Validators {
   Stream<String> get registerPassword =>
       _registerPassword.stream.transform(passwordValidator);
   Stream<String> get registerConfirmPassword =>
-      _registerConfirmPassword.stream.transform(passwordValidator);
+      _registerConfirmPassword.stream.transform(passwordValidator).doOnData(
+        (String confirmPassword) {
+          if (_registerPassword.value.compareTo(confirmPassword) != 0) {
+            _registerConfirmPassword.sink
+                .addError("Confirm password must be same as password.");
+          }
+        },
+      );
 
   Stream<bool> get isValid => Rx.combineLatest5(
       registerName,
@@ -30,9 +39,6 @@ class RegisterBloc with Validators {
       registerPassword,
       registerConfirmPassword,
       (a, b, c, d, e) => true);
-
-  Stream<bool> get isPasswordMatched => Rx.combineLatest2(
-      registerPassword, registerConfirmPassword, (a, b) => a == b);
 
   // Setters
   Function(String) get changeRegisterName => _registerName.sink.add;
@@ -43,12 +49,7 @@ class RegisterBloc with Validators {
   Function(String) get changeRegisterConfirmPassword =>
       _registerConfirmPassword.sink.add;
 
-  void submit() {
-    if (registerPassword != registerConfirmPassword) {
-      _registerConfirmPassword
-          .addError("Confirm Password must be same as password");
-    }
-  }
+  void submit() {}
 
   void dispose() {
     _registerName.close();
