@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:login_bloc/src/blocs/provider.dart';
 
 import "./screens/login_screen.dart";
 
@@ -7,10 +8,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: LoginScreen(),
+    return Provider(
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          body: LoginScreen(),
+        ),
       ),
     );
   }
