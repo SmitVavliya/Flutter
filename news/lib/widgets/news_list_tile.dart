@@ -30,14 +30,14 @@ class NewsListTile extends StatelessWidget {
               return const LoadingContainer();
             }
 
-            return buildTile(itemSnapshot.data!);
+            return buildTile(context, itemSnapshot.data!);
           },
         );
       },
     );
   }
 
-  Widget buildTile(ItemModel item) {
+  Widget buildTile(BuildContext context, ItemModel item) {
     return Column(
       children: [
         ListTile(
@@ -47,7 +47,7 @@ class NewsListTile extends StatelessWidget {
           ),
           subtitle: Padding(
             padding: const EdgeInsets.only(bottom: 10),
-            child: Text('${item.score} votes'),
+            child: Text('${item.score} points by ${item.by}'),
           ),
           trailing: Column(
             children: <Widget>[
@@ -55,6 +55,13 @@ class NewsListTile extends StatelessWidget {
               Text('${item.descendants}'),
             ],
           ),
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              "/details",
+              arguments: {"id": item.id},
+            );
+          },
         ),
         const Divider(thickness: 1.1, height: 10),
       ],
