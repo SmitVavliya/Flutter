@@ -33,7 +33,9 @@ class JitsiMeetController {
         ..audioMuted = isAudioMuted
         ..videoMuted = isVideoMuted;
 
-      _firestoreController.addmeetingToFirestore(roomName);
+      if (roomName.isNotEmpty) {
+        _firestoreController.addmeetingToFirestore(roomName);
+      }
 
       await JitsiMeet.joinMeeting(options);
     } catch (error) {
