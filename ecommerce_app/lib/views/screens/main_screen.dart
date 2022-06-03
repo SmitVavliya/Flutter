@@ -29,7 +29,7 @@ class MainScreen extends StatelessWidget {
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
+                children: const <Widget>[
                   // _appBar(),
                   // _title(),
                   Expanded(
