@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/animation_route.dart';
 import 'package:ecommerce_app/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,6 +11,11 @@ ThemeData theme() {
     textTheme: textTheme(),
     inputDecorationTheme: inputDecorationTheme(),
     visualDensity: VisualDensity.adaptivePlatformDensity,
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: {
+        TargetPlatform.android: AnimationRoute(),
+      },
+    ),
   );
 }
 

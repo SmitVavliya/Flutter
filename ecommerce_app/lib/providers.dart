@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/controllers/blocs/forgot_password_bloc.dart';
 import 'package:ecommerce_app/controllers/blocs/signin_bloc.dart';
 import 'package:ecommerce_app/controllers/blocs/signup_bloc.dart';
 import 'package:provider/provider.dart';
@@ -9,5 +10,8 @@ final List<Provider> providers = [
   ),
   Provider<SignUpBloc>(
     create: (BuildContext context) => SignUpBloc(),
+  ),
+  Provider<ForgetPasswordBloc>(
+    create: (BuildContext context) => ForgetPasswordBloc(),
   )
 ];

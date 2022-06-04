@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:typed_data';
 
 import 'package:ecommerce_app/controllers/auth_controller.dart';
 import 'package:ecommerce_app/controllers/blocs/utils/validators.dart';

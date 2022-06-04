@@ -75,11 +75,13 @@ class _SignInScreenState extends State<SignInScreen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pushNamed("/forgot_password");
+                        },
                         child: const Padding(
                           padding: EdgeInsets.only(right: 5),
                           child: Text(
-                            "Forget Password?",
+                            "Forgot Password?",
                             style: TextStyle(
                               decoration: TextDecoration.underline,
                             ),

@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  badges: ^2.0.3
   cloud_firestore: ^3.1.17
   cupertino_icons: ^1.0.2
   firebase_auth: ^3.3.19
@@ -58,6 +59,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/images/clothes/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

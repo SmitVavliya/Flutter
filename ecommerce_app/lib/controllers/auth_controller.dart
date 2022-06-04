@@ -108,6 +108,22 @@ class AuthController {
     return res;
   }
 
+  Future<String> forgetPassword(String email) async {
+    String res;
+
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(email: email);
+
+      res = "Success";
+    } on FirebaseAuthException catch (e) {
+      res = e.message.toString();
+    } on FirebaseException catch (e) {
+      res = e.message.toString();
+    }
+
+    return res;
+  }
+
   showSnackbar(BuildContext context, String content) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
