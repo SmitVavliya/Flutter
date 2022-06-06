@@ -5,9 +5,14 @@ import 'package:provider/provider.dart';
 
 import '../../../../models/products.dart';
 
-class ProductItem extends StatelessWidget {
-  const ProductItem({Key? key}) : super(key: key);
+class FeedsProducts extends StatefulWidget {
+  const FeedsProducts({Key? key}) : super(key: key);
 
+  @override
+  State<FeedsProducts> createState() => _FeedsProductsState();
+}
+
+class _FeedsProductsState extends State<FeedsProducts> {
   @override
   Widget build(BuildContext context) {
     final Product product = Provider.of<Product>(context, listen: false);
@@ -38,7 +43,7 @@ class ProductItem extends StatelessWidget {
                         topRight: Radius.circular(20),
                       ),
                       image: DecorationImage(
-                        image: AssetImage(product.imageUrl.toString()),
+                        image: AssetImage(product.imageUrl),
                         fit: BoxFit.fitHeight,
                       ),
                     ),
@@ -64,7 +69,7 @@ class ProductItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Text(
-                  product.title.toString(),
+                  product.title,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     height: 1.6,

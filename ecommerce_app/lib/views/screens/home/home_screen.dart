@@ -7,7 +7,6 @@ import 'package:ecommerce_app/views/screens/home/widgets/search_field.dart';
 import 'package:ecommerce_app/views/screens/home/widgets/tag_list.dart';
 import "package:flutter/material.dart";
 
-import '../../../models/clothes.dart';
 import '../../../size_config.dart';
 
 class HomeScreen extends StatelessWidget {

@@ -1,16 +1,12 @@
 import 'package:ecommerce_app/const.dart';
-import 'package:ecommerce_app/models/clothes.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../../controllers/providers/products_provider.dart';
 import '../../../../size_config.dart';
 
 class ProductImage extends StatefulWidget {
-  late Clothes product;
-
-  ProductImage({
-    Key? key,
-    required this.product,
-  }) : super(key: key);
+  const ProductImage({Key? key}) : super(key: key);
 
   @override
   _ProductImagesState createState() => _ProductImagesState();
@@ -21,8 +17,13 @@ class _ProductImagesState extends State<ProductImage> {
 
   @override
   Widget build(BuildContext context) {
+    final ProductsProvider products = Provider.of<ProductsProvider>(context);
+    final String productId =
+        ModalRoute.of(context)!.settings.arguments as String;
+    final product = products.findById(productId);
+
     final double width = getWidth(context);
-    final double hw = width / (widget.product.imageChildren!.length + 4);
+    final double hw = width / (product.imageChildren.length + 4);
 
     return Column(
       children: [
@@ -31,9 +32,9 @@ class _ProductImagesState extends State<ProductImage> {
           child: AspectRatio(
             aspectRatio: 1,
             child: Hero(
-              tag: widget.product.productName.toString(),
+              tag: product.title.toString(),
               child: Image.asset(
-                widget.product.imageChildren![selectedImage],
+                product.imageChildren[selectedImage],
               ),
             ),
           ),
@@ -43,7 +44,7 @@ class _ProductImagesState extends State<ProductImage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ...List.generate(
-              widget.product.imageChildren!.length,
+              product.imageChildren!.length,
               (index) => buildSmallProductPreview(index, hw),
             ),
           ],
@@ -53,6 +54,11 @@ class _ProductImagesState extends State<ProductImage> {
   }
 
   GestureDetector buildSmallProductPreview(int index, double hw) {
+    final ProductsProvider products = Provider.of<ProductsProvider>(context);
+    final String productId =
+        ModalRoute.of(context)!.settings.arguments as String;
+    final product = products.findById(productId);
+
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -75,7 +81,7 @@ class _ProductImagesState extends State<ProductImage> {
           ),
         ),
         child: Image.asset(
-          widget.product.imageChildren![index],
+          product.imageChildren[index],
         ),
       ),
     );
